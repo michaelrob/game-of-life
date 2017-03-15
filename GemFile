@@ -1,0 +1,9 @@
+source "https://rubygems.org"
+
+gem "rake"
+gem 'rspec-rails'
+
+# pry to help debugging
+gem 'pry-rails'
+gem "pry"
+gem 'pry-inline'
