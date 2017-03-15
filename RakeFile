@@ -1,0 +1,10 @@
+require 'pry'
+
+task :default => [:run]
+
+desc "Game of Life"
+task "run" do
+  $LOAD_PATH.unshift(File.dirname(__FILE__), "lib")
+  require 'board'
+
+end
