@@ -22,14 +22,18 @@ describe Cell do
 
   describe '#alive?' do
     context 'cell is dead' do
+      let(:cell) { Cell.new(board, 0, 0, false) }
+
       it 'should return false' do
-        #
+        expect(cell.alive?).to eq false
       end
     end
 
     context 'cell is alive' do
+      let(:cell) { Cell.new(board, 0, 0, true) }
+
       it 'should return true' do
-        #
+        expect(cell.alive?).to eq true
       end
     end
   end
