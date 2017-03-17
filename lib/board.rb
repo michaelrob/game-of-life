@@ -7,15 +7,15 @@ class Board
   end
 
   def tick!
-    @cells.each do |cell|
-      change = []
+    change = []
 
+    @cells.each do |cell|
       change.push(cell) if (cell.alive? && cell.live_neighbours.length < 2)
       change.push(cell) if (cell.alive? && cell.live_neighbours.length > 3)
       change.push(cell) if (cell.dead? && cell.live_neighbours.length == 3)
-
-      change.each(&:switch!)
     end
+
+    change.each(&:switch!)
   end
 
   def cells
