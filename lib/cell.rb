@@ -9,7 +9,7 @@ class Cell
   end
 
   def dead?
-    @alive = false
+    !@alive
   end
 
   def alive?
