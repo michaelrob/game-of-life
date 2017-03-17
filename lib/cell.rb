@@ -17,7 +17,7 @@ class Cell
   end
 
   def alive!
-    @live = true
+    @alive = true
   end
 
   def switch!
