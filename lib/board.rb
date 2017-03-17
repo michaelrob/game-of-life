@@ -8,12 +8,15 @@ class Board
 
   def tick!
     @cells.each do |cell|
-      if(cell.alive? && cell.live_neighbours.length < 2)
-        cell.switch!
-      end
+      cell.switch! if (cell.alive? && cell.live_neighbours.length < 2)
+      cell.switch! if (cell.alive? && cell.live_neighbours.length > 3)
+      cell.switch! if (cell.dead? && cell.live_neighbours.length == 3)
+      cell.alive! if (cell.alive? && cell.live_neighbours.length.between?(2 ,3))
     end
+  end
 
-    return
+  def cells
+    @cells
   end
 
   def get_cell(col, row)
