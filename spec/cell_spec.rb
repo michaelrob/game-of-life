@@ -35,8 +35,11 @@ describe Cell do
   end
 
   describe '#alive!' do
+    let(:cell) { Cell.new(board, 0, 0, false) }
+    let!(:alive!) { cell.alive! }
+
     it 'should change cell alive to true' do
-      #
+      expect(cell.alive?).to eq true
     end
   end
 
