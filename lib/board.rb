@@ -8,10 +8,13 @@ class Board
 
   def tick!
     @cells.each do |cell|
-      cell.switch! if (cell.alive? && cell.live_neighbours.length < 2)
-      cell.switch! if (cell.alive? && cell.live_neighbours.length > 3)
-      cell.switch! if (cell.dead? && cell.live_neighbours.length == 3)
-      cell.alive! if (cell.alive? && cell.live_neighbours.length.between?(2 ,3))
+      change = []
+
+      change.push(cell) if (cell.alive? && cell.live_neighbours.length < 2)
+      change.push(cell) if (cell.alive? && cell.live_neighbours.length > 3)
+      change.push(cell) if (cell.dead? && cell.live_neighbours.length == 3)
+
+      change.each(&:switch!)
     end
   end
 
@@ -27,7 +30,7 @@ private
 
   def build(width, height, live_cells)
     Matrix.build(width, height) do |w, h|
-      live_cells.include? [w, h] ? alive = true : alive = false
+      alive = live_cells.include? [w, h]
       Cell.new(self, w, h, alive)
     end
   end
