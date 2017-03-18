@@ -3,6 +3,8 @@ require 'cell'
 
 class Board
   def initialize(width = 80, height = 20, alive = [])
+    @width = width
+    @height = height
     @cells = build(width, height, alive)
   end
 
@@ -26,12 +28,25 @@ class Board
     @cells[col, row]
   end
 
+  def display()
+    if @cells
+      @cells.each do |cell|
+        print '@' if cell.alive? == true
+        print '.' if cell.alive? == false
+
+        puts '' if cell.row == @width - 1
+      end
+    else
+      puts 'There are no cells to display :('
+    end
+  end
+
 private
 
   def build(width, height, live_cells)
-    Matrix.build(width, height) do |w, h|
+    Matrix.build(height, width) do |w, h|
       alive = live_cells.include? [w, h]
-      Cell.new(self, w, h, alive)
+      Cell.new(self, h, w, alive)
     end
   end
 end

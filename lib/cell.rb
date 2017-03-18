@@ -2,9 +2,10 @@ class Cell
   attr_reader :board, :col, :row
   attr_accessor :alive
 
-  def initialize(board, col, row, alive = false)
+  def initialize(board, row, col, alive = false)
     @board = board
-    @col = col, @row = row
+    @col = col
+    @row = row
     @alive = alive
   end
 
@@ -28,18 +29,18 @@ class Cell
     neighbours = []
 
     # top
-    neighbours.push(@board.get_cell(self.col[0] - 1, self.row - 1))
-    neighbours.push(@board.get_cell(self.col[0] - 1, self.row))
-    neighbours.push(@board.get_cell(self.col[0] - 1, self.row + 1))
+    neighbours.push(@board.get_cell(self.col - 1, self.row - 1))
+    neighbours.push(@board.get_cell(self.col - 1, self.row))
+    neighbours.push(@board.get_cell(self.col - 1, self.row + 1))
 
     # left, right
-    neighbours.push(@board.get_cell(self.col[0], self.row - 1))
-    neighbours.push(@board.get_cell(self.col[0], self.row + 1))
+    neighbours.push(@board.get_cell(self.col, self.row - 1))
+    neighbours.push(@board.get_cell(self.col, self.row + 1))
 
     # bottom
-    neighbours.push(@board.get_cell(self.col[0] + 1, self.row - 1))
-    neighbours.push(@board.get_cell(self.col[0] + 1, self.row))
-    neighbours.push(@board.get_cell(self.col[0] + 1, self.row + 1))
+    neighbours.push(@board.get_cell(self.col + 1, self.row - 1))
+    neighbours.push(@board.get_cell(self.col + 1, self.row))
+    neighbours.push(@board.get_cell(self.col + 1, self.row + 1))
 
     neighbours
   end
