@@ -24,6 +24,14 @@ class Board
     @cells
   end
 
+  def height
+    @height
+  end
+
+  def width
+    @width
+  end
+
   def get_cell(col, row)
     @cells[col, row]
   end

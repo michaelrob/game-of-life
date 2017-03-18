@@ -5,12 +5,18 @@ describe Board do
   let(:board) { Board.new(10, 10, [[0,0], [0,1], [0,2], [2,1], [2,2], [3,0], [3,1], [3,2], [5,1], [5,0], [6,1]]) }
 
   it 'should generate board' do
+    expect(board.cells).not_to be_empty
   end
 
-  it 'should be 80 wide and 20 high' do
+  it 'should default to 80 wide and 20 high' do
+    board = Board.new()
+
+    expect(board.width).to be 80
+    expect(board.height).to be 20
   end
 
   it 'should generate board with cell' do
+    expect(board.get_cell(0,0)).to be_an_instance_of(Cell)
   end
 
   describe '#tick' do

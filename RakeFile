@@ -14,7 +14,7 @@ task "run" do
     exit
   end
 
-  board = Board.new(80, 20)
+  board = Board.new()
   board.info()
   board.display()
 
