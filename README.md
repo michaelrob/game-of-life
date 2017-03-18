@@ -1,6 +1,6 @@
 # Game of Life
 
-### Description 
+### Description
 
 Conways game of life. From wikipedia:
 
@@ -13,11 +13,11 @@ The rules to be followed:
  - Any live cell with more than three live neighbours dies, as if by overpopulation.
  - Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 
-### Setup
+### Setup & Run
 
-Set up using the below steps. 
+Set up using the below steps.
 
-Requirements: 
+Requirements:
  - ruby 2.3.3
  - bundler, install with: `gem install bundle`
 
