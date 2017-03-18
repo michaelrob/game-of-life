@@ -38,8 +38,12 @@ describe Board do
     end
 
     context 'cell is dead' do
+      before do
+        board.tick!
+      end
+
       it 'should return live cell if three neighbours are live' do
-        expect(board.cells[1,1].alive?).to be true
+        expect(board.cells[1,0].alive?).to be true
       end
     end
   end
