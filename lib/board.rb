@@ -41,11 +41,21 @@ class Board
     end
   end
 
+  def info()
+    system 'clear'
+    puts 'Conways game of life'
+    puts '---------------------------------------------------------------------'
+    puts 'To close type "/q" and press enter'
+    puts ''
+  end
+
 private
 
   def build(width, height, live_cells)
     Matrix.build(height, width) do |w, h|
-      alive = live_cells.include? [w, h]
+      alive = [true, false].sample if live_cells.empty?
+      alive = live_cells.include? [w, h] unless live_cells.empty?
+
       Cell.new(self, h, w, alive)
     end
   end
